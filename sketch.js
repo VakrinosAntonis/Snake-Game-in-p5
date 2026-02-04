@@ -16,13 +16,13 @@ function setup() {
   
 //ΠΑΡΑΜΕΤΡΟΣ ΠΑΡΑΘΥΡΟΥ
   t =floor(map(width*height,200*200,1000*1000,1,100));
-  foodarmax = floor(2*t);
+  foodarmax = floor(0.5*t);
   n=0.3*t;
   step=t*0.25;
   
 //ΑΡΧΙΚΟΙ ΠΑΡΑΜΕΤΡΟΙ 
    life = 5;
-   towin = 10; 
+   towin = 20; 
    bodyar = 40;
   
 //ΦΑΓΗΤΟ 
@@ -40,8 +40,8 @@ function setup() {
   
 //ΚΤΗΡΙΑ
   createBuildings();
-  drawBuildings(5);
-  for (var i=0; i<foodar; i++){
+  drawBuildings(3);
+  for (var i=0; i<foodarmax; i++){
     let k = random (0,width);
     let l = random (55,height);
      let d = get(k,l);
@@ -58,7 +58,8 @@ function setup() {
 
 function draw() {
   noStroke();
-  frameRate(map(foodar,foodarmax,towin,t*0.2,1.5*t));
+  //frameRate(map(foodar,0,foodarmax,t*0.1,1*t));
+  frameRate(10);
   
   background(0,0,0);
   
